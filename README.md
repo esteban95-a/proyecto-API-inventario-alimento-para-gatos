@@ -1,13 +1,27 @@
-#  🐱proyecto-API-inventario-alimento-para-gatos
+# 🐱 Proyecto API Inventario de Alimento para Gatos
 
-## Estudiante : Didier Esteban Achuri Lopez
+## Estudiante
+Didier Esteban Achuri Lopez
 
-### URL de la API : https://6987785d8bacd1d773ed773c.mockapi.io/api/v1/GATOS/alimento
+## URL de la API
+https://6987785d8bacd1d773ed773c.mockapi.io/api/v1/GATOS/alimento
 
-## 1️⃣ MODELO DE DATOS
+## Tabla de Contenidos
+- [1. Modelo de Datos](#1️⃣-modelo-de-datos)
+- [2. Operaciones CRUD (Postman)](#2️⃣-operaciones-crud-postman)
+  - [a) Obtener los registros (GET)](#a-obtener-los-registros-get)
+  - [b) Creación de un nuevo registro](#b-creación-de-un-nuevo-registro)
+  - [c) Consulta de registro individual (GET)](#c-consulta-de-registro-individual-get)
+  - [d) Actualización de un registro (PUT)](#d-actualización-de-un-registro-put)
+  - [e) Eliminación de un registro](#e-eliminación-de-un-registro)
+  - [f) Validación de recurso inexistente](#f-validación-de-recurso-inexistente)
+- [3. Resumen de Endpoints y Códigos HTTP](#3️⃣-resumen-de-endpoints-y-códigos-http)
 
+## 1️⃣ Modelo de Datos
 
-- Se configuro el recurso gato con la sigiente estructura
+Se configuró el recurso "gato" con la siguiente estructura:
+
+```json
 [
   {
     "marca": "agility",
@@ -38,146 +52,168 @@
     "id": "2"
   }
 ]
+```
 
-## 2️⃣ Operaciones CRUD(postman)
+## 2️⃣ Operaciones CRUD (Postman)
 
 ### a) Obtener los registros (GET)
+- **Status**: 200 OK
+- **Respuesta de Postman**:
 
-- Status : 200 OK
-- Respuesta de postman : 
+```json
 [
-    {
-        "marca": "agility",
-        "tipo": "seco",
-        "precio": 45000,
-        "personalidad": [
-            "juegueton"
-        ],
-        "descripcion": {
-            "tamaño": "500gr",
-            "etapa": "adulto"
-        },
-        "disponible": true,
-        "id": "1"
-    },
-    {
-        "marca": "agility",
-        "tipo": "seco",
-        "precio": 70000,
-        "personalidad": [
-            "casero"
-        ],
-        "descripcion": {
-            "tamaño": "500gr",
-            "etapa": "cachorro"
-        },
-        "disponible": true,
-        "id": "2"
-    }
-]
-
-
-### B) CREACION DE UN NUEVO REGISTRO
-- status : 201 Created
-- Cuerpo enviado en postman :
-{
+  {
     "marca": "agility",
     "tipo": "seco",
-    "precio": 50000,
+    "precio": 45000,
     "personalidad": [
-      "dominante"
+      "juegueton"
+    ],
+    "descripcion": {
+      "tamaño": "500gr",
+      "etapa": "adulto"
+    },
+    "disponible": true,
+    "id": "1"
+  },
+  {
+    "marca": "agility",
+    "tipo": "seco",
+    "precio": 70000,
+    "personalidad": [
+      "casero"
     ],
     "descripcion": {
       "tamaño": "500gr",
       "etapa": "cachorro"
     },
     "disponible": true,
-    "id": ""
+    "id": "2"
   }
+]
+```
 
-- Respuesta de postman :
-{
-    "marca": "agility",
-    "tipo": "seco",
-    "precio": 50000,
-    "personalidad": [
-        "dominante"
-    ],
-    "descripcion": {
-        "tamaño": "500gr",
-        "etapa": "cachorro"
-    },
-    "disponible": true,
-    "id": "3"
-}
-###  c) Consulta de registro individual (GET)
-- Endpoint : /api/v1/GATOS/alimento/1
-- Status : 200 OK
-- Respuesta de postman :
-{
-    "marca": "agility",
-    "tipo": "seco",
-    "precio": 45000,
-    "personalidad": [
-        "juegueton"
-    ],
-    "descripcion": {
-        "tamaño": "500gr",
-        "etapa": "adulto"
-    },
-    "disponible": true,
-    "id": "1"
-}
+### b) Creación de un nuevo registro
+- **Status**: 201 Created
+- **Cuerpo enviado en Postman**:
 
-### d) Acualizacion de un reistro (put)
-- Status : 200 OK
-- modificacion : precio y tamaño del registro id 1
-- Respuesta de postman :
+```json
 {
-    "marca": "Agility",
-    "tipo": "seco",
-    "precio": 52000,
-    "personalidad": [
-        "juegueton"
-    ],
-    "descripcion": {
-        "tamaño": "500gr",
-        "etapa": "adulto"
-    },
-    "disponible": true,
-    "id": "1",
-    "tamaño": "1kg",
+  "marca": "agility",
+  "tipo": "seco",
+  "precio": 50000,
+  "personalidad": [
+    "dominante"
+  ],
+  "descripcion": {
+    "tamaño": "500gr",
+    "etapa": "cachorro"
+  },
+  "disponible": true,
+  "id": ""
+}
+```
+
+- **Respuesta de Postman**:
+
+```json
+{
+  "marca": "agility",
+  "tipo": "seco",
+  "precio": 50000,
+  "personalidad": [
+    "dominante"
+  ],
+  "descripcion": {
+    "tamaño": "500gr",
+    "etapa": "cachorro"
+  },
+  "disponible": true,
+  "id": "3"
+}
+```
+
+### c) Consulta de registro individual (GET)
+- **Endpoint**: `/api/v1/GATOS/alimento/1`
+- **Status**: 200 OK
+- **Respuesta de Postman**:
+
+```json
+{
+  "marca": "agility",
+  "tipo": "seco",
+  "precio": 45000,
+  "personalidad": [
+    "juegueton"
+  ],
+  "descripcion": {
+    "tamaño": "500gr",
     "etapa": "adulto"
+  },
+  "disponible": true,
+  "id": "1"
 }
+```
 
-### e) Eliminacion de un registro
-- Status : 200 OK
-- Respuesta de postman :
+### d) Actualización de un registro (PUT)
+- **Status**: 200 OK
+- **Modificación**: Precio y tamaño del registro ID 1
+- **Respuesta de Postman**:
+
+```json
 {
-    "marca": "Agility",
-    "tipo": "seco",
-    "precio": 52000,
-    "personalidad": [
-        "juegueton"
-    ],
-    "descripcion": {
-        "tamaño": "500gr",
-        "etapa": "adulto"
-    },
-    "disponible": true,
-    "id": "1",
-    "tamaño": "1kg",
+  "marca": "Agility",
+  "tipo": "seco",
+  "precio": 52000,
+  "personalidad": [
+    "juegueton"
+  ],
+  "descripcion": {
+    "tamaño": "500gr",
     "etapa": "adulto"
+  },
+  "disponible": true,
+  "id": "1",
+  "tamaño": "1kg",
+  "etapa": "adulto"
 }
- ### f)Validacion de recurso inexistente :
-- Endpoint : /api/v1/GATOS/alimento/1
-- Status : 404Not Found
-- Respuesta de postman :
-"Not found"
+```
 
-## 3️⃣ RESUMEN DE ENDPOINTS  CODIGOS HTTP
+### e) Eliminación de un registro
+- **Status**: 200 OK
+- **Respuesta de Postman**:
+
+```json
+{
+  "marca": "Agility",
+  "tipo": "seco",
+  "precio": 52000,
+  "personalidad": [
+    "juegueton"
+  ],
+  "descripcion": {
+    "tamaño": "500gr",
+    "etapa": "adulto"
+  },
+  "disponible": true,
+  "id": "1",
+  "tamaño": "1kg",
+  "etapa": "adulto"
+}
+```
+
+### f) Validación de recurso inexistente
+- **Endpoint**: `/api/v1/GATOS/alimento/1`
+- **Status**: 404 Not Found
+- **Respuesta de Postman**:
+  ```
+  "Not found"
+  ```
+
+## 3️⃣ Resumen de Endpoints y Códigos HTTP
+
 | Operación                   | Método HTTP | Endpoint                      | Descripción                        | Código HTTP       |
-| --------------------------- | ----------- | ----------------------------- | ---------------------------------- | ----------------- |
+|-----------------------------|-------------|-------------------------------|------------------------------------|-------------------|
 | Obtener todos los registros | GET         | `/api/v1/GATOS/alimento`      | Lista todos los alimentos de gatos | **200 OK**        |
 | Obtener registro por ID     | GET         | `/api/v1/GATOS/alimento/{id}` | Devuelve un alimento específico    | **200 OK**        |
 | Crear nuevo registro        | POST        | `/api/v1/GATOS/alimento`      | Crea un nuevo alimento             | **201 Created**   |
